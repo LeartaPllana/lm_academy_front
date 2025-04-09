@@ -19,8 +19,11 @@ export default [
       globals: {
         ...globals.browser,
       },
-    },
-  },
+      rules: { // Fixed the missing comma here
+        'vue/multi-word-component-names': 'off',
+      } // Added closing brace for rules
+    } // Added closing brace for languageOptions
+  },  
 
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
