@@ -27,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="wrapper min-h-[80vh] flex flex-col justify-around">
+  <div class="min-h-[80vh] flex flex-col justify-around">
     <div class="welcome-message flex justify-center">
       <div class="w-[250px] md:w-[450px] text-center">
         <h1 class="text-3xl">
