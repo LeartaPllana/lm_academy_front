@@ -17,10 +17,8 @@
               marginheight="0"
               marginwidth="0"
               src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=vushtrri,Lutfi%20Musiqi+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-              ><a href="https://www.gps.ie/collections/personal-trackers/"
-                >real-time gps tracker,</a
-              ></iframe
             >
+            </iframe>
           </div>
         </div>
         <p class="text-2xl text-textPrimary mt-10">Vushtrri</p>
@@ -42,10 +40,10 @@
       <!-- Contact -->
       <div>
         <h2 class="text-xl font-extrabold mb-6 bg-white p-1 text-textPrimary">Contact</h2>
-        <p class="mb-3">Tel: +38328009</p>
+        <p class="mb-3">Tel: +38344429579</p>
         <p>
           e-mail:
-          <a href="mailto:shmt.lufti.musiqi@gmail.com"> shmt.lufti.musiqi@gmail.com </a>
+          <a href="mailto:shmt.lufti.musiqi@gmail.com"> lutfimusiqihighschool@gmail.com </a>
         </p>
       </div>
     </div>
