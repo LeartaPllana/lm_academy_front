@@ -1,4 +1,6 @@
+import { useUserStore } from '@/stores/useUserStore'
 import { createRouter, createWebHistory } from 'vue-router'
+import fetchCurrentUser from '@/utils/fetchCurrentUser'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +34,7 @@ const router = createRouter({
         {
           path: '/contact',
           name: 'ContactPage',
-          component:() =>  import('@/views/ContactPageView.vue'),
+          component: () => import('@/views/ContactPageView.vue'),
           meta: {
             visitor: true,
           },
@@ -40,7 +42,7 @@ const router = createRouter({
         {
           path: '/about-us',
           name: 'AboutUs',
-          component:() =>  import('@/views/AboutUsView.vue'),
+          component: () => import('@/views/AboutUsView.vue'),
           meta: {
             visitor: true,
           },
@@ -50,43 +52,66 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component:() =>  import('@/views/Errors/NotFound.vue'),
+      component: () => import('@/views/Errors/NotFound.vue'),
     },
     {
       path: '/auth',
       name: 'AuthLayout',
-      component:() =>  import('@/layouts/AuthLayout.vue'),
+      component: () => import('@/layouts/AuthLayout.vue'),
       children: [
         {
           path: '/login',
           name: 'Login',
-          component:() =>  import('@/views/Auth/LoginView.vue'),
+          component: () => import('@/views/Auth/LoginView.vue'),
         },
         {
           path: '/register',
           name: 'Register',
-          component:() =>  import('@/views/Auth/RegisterView.vue'),
+          component: () => import('@/views/Auth/RegisterView.vue'),
         },
       ],
     },
     {
       path: '/dashboard',
       name: 'DashboardLayout',
-      component:() =>  import('@/layouts/DashboardLayout.vue'),
+      component: () => import('@/layouts/DashboardLayout.vue'),
       children: [
         {
           path: '',
           name: 'Dashboard',
-          component:() =>  import('@/views/Dashboard/DashboardView.vue'),
+          component: () => import('@/views/Dashboard/DashboardView.vue'),
         },
         {
           path: 'users-lists',
           name: 'DashboardUserList',
           component: () => import('@/views/Dashboard/UsersList.vue'),
         },
+        {
+          path: 'send-registration-invite',
+          name: 'DashboardSendRegistrationInvite',
+          component: () => import('@/views/Dashboard/SendRegistrationInviteView.vue'),
+        },
       ],
     },
   ],
+})
+router.beforeEach((to, from, next) => {
+  const userStore = useUserStore()
+  const localStorageToken = localStorage.getItem('lm_access_token')
+  let isUserLoggedIn = userStore?.isUserLoggedIn
+  let storeUser = userStore?.user
+
+  console.log('storeUser', storeUser)
+
+  if (localStorageToken && storeUser != undefined) {
+    fetchCurrentUser().then((user) => {
+      console.log('user', user.user)
+      userStore.setUser(user.user)
+      isUserLoggedIn = true
+    })
+  }
+
+  return next()
 })
 
 export default router

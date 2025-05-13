@@ -1,9 +1,8 @@
 <script setup>
-import { useUserStore } from '@/stores/useUserStore'
-import Axios from '@/utils/axios'
 import { ref } from 'vue'
+import Axios from '@/utils/axios'
 import { useRouter } from 'vue-router'
-
+import { useUserStore } from '@/stores/useUserStore'
 const email = ref('')
 const password = ref('')
 const router = useRouter()
@@ -11,7 +10,6 @@ const router = useRouter()
 const userStore = useUserStore()
 
 const handleSubmit = async () => {
-  // call ni api
   try {
     const data = {
       email: email.value,
@@ -22,17 +20,20 @@ const handleSubmit = async () => {
 
     if (response.status == 200) {
       const access_token = response?.data?.access_token
+
       const authUser = response?.data?.user
-      localStorage.setItem('lm-access-token', access_token)
+
+      localStorage.setItem('lm_access_token', access_token)
+
       userStore.setUser(authUser)
       router.push('/dashboard')
 
-      const getRoles = await Axios.post('/auth/user-profile', data)
+      // const getRoles = await Axios.post('/auth/user-profile', data)
     }
 
     console.log('response', response)
   } catch (error) {
-    console.error('error', error)
+    console.log(error)
   }
 }
 </script>
@@ -55,6 +56,8 @@ const handleSubmit = async () => {
               id="forEmail"
               class="py-3 px-4 block w-full border-gray-200 rounded-sm text-sm focus:border-blue-600 focus:ring-0"
               aria-describedby="hs-input-helper-text"
+              required
+              placeholder="Enter your email"
             />
           </div>
           <!-- password -->
@@ -66,6 +69,8 @@ const handleSubmit = async () => {
               id="forPassword"
               class="py-3 px-4 block w-full border-gray-200 rounded-sm text-sm focus:border-blue-600 focus:ring-0"
               aria-describedby="hs-input-helper-text"
+              required
+              placeholder="Enter your password"
             />
           </div>
           <!-- checkbox -->
@@ -78,7 +83,7 @@ const handleSubmit = async () => {
                 checked
               />
               <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3"
-                >Remeber this Device</label
+                >Remember this Device</label
               >
             </div>
             <a href="../" class="text-sm font-semibold text-blue-600 hover:text-blue-700"
