@@ -106,32 +106,33 @@
         <div class="grid md:grid-cols-3">
           <div class="border-b border-black p-4 text-center md:border-r">
             <a href="#" target="_blank" class="text-blue-700 font-medium none">
-              Student 1 <span class="text-sm text-gray-600">(student.1@hotmail.com)</span>
+              Learta Pllana <span class="text-sm text-gray-600">(learta.pllana@gmail.com)</span>
             </a>
           </div>
           <div class="border-b border-black p-4 text-center md:border-r">
             <a href="#" target="_blank" class="text-blue-700 font-medium none">
-              Student 2 <span class="text-sm text-gray-600">(student.2@gmail.com)</span>
+              Hysnije Bajraktari
+              <span class="text-sm text-gray-600">(hysnije.bajraktari@gmail.com)</span>
             </a>
           </div>
           <div class="border-b border-black p-4 text-center">
             <a href="#" target="_blank" class="text-blue-700 font-medium none">
-              Student 3 <span class="text-sm text-gray-600">(student.3@hotmail.com)</span>
+              Elona Halimi <span class="text-sm text-gray-600">(elona.halimi@gmail.com)</span>
             </a>
           </div>
           <div class="p-4 text-center md:border-r border-black">
             <a href="#" target="_blank" class="text-blue-700 font-medium none">
-              Student 4 <span class="text-sm text-gray-600">(student.4@outlook.com)</span>
+              Altuna Hyseni <span class="text-sm text-gray-600">(altuna.hyseni@gmail.com)</span>
             </a>
           </div>
           <div class="p-4 text-center md:border-r border-black">
             <a href="#" target="_blank" class="text-blue-700 font-medium none">
-              Student 5 <span class="text-sm text-gray-600">(student.5@gmail.com)</span>
+              Enesa Cakaj <span class="text-sm text-gray-600">(enesa.cakaj@gmail.com)</span>
             </a>
           </div>
           <div class="p-4 text-center">
             <a href="#" target="_blank" class="text-blue-700 font-medium none">
-              Student 6 <span class="text-sm text-gray-600">(student.6@gmail.com)</span>
+              Rinora Sadiku <span class="text-sm text-gray-600">(rinora.sadiku@gmail.com)</span>
             </a>
           </div>
         </div>
